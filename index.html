@@ -1,274 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>O Caminho Sombrio - Jogo de Texto</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans&display=swap');
-    body {
-      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-      color: #e0e0e0;
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-    #game-container {
-      background: #141414cc;
-      border: 2px solid #660000;
-      border-radius: 12px;
-      width: 90vw;
-      max-width: 600px;
-      padding: 25px 35px 35px 35px;
-      box-shadow: 0 0 20px #aa0000cc;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 80vh;
-    }
-    h1 {
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 2.8rem;
-      color: #cc2222;
-      margin-bottom: 15px;
-      text-align: center;
-      text-shadow: 1px 1px 6px #a00000cc;
-    }
-    #story {
-      flex-grow: 1;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      overflow-y: auto;
-      margin-bottom: 25px;
-      padding-right: 10px;
-      border-right: 1px solid #330000aa;
-    }
-    #choices {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    button.choice-btn {
-      background: #330000;
-      color: #eee;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 18px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 2px 8px #990000cc;
-    }
-    button.choice-btn:hover, button.choice-btn:focus {
-      background: #660000;
-      outline: none;
-      box-shadow: 0 0 14px #ff4444aa;
-    }
-    #footer {
-      font-size: 0.85rem;
-      font-style: italic;
-      color: #660000;
-      text-align: center;
-      margin-top: 15px;
-      user-select: none;
-    }
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #111;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #660000;
-      border-radius: 10px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>O Caminho Sombrio - Jogo de Texto</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans&display=swap');
+  body {
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+    color: #e0e0e0;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  #game-container {
+    background: #141414cc;
+    border: 2px solid #660000;
+    border-radius: 12px;
+    width: 90vw;
+    max-width: 600px;
+    padding: 25px 35px 35px 35px;
+    box-shadow: 0 0 20px #aa0000cc;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 80vh;
+  }
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: #cc2222;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 1px 1px 6px #a00000cc;
+  }
+  #story {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    overflow-y: auto;
+    padding-right: 10px;
+    border-right: 1px solid #330000aa;
+    user-select: none;
+  }
+  #choices {
+    margin-top: 20px;
+  }
+  .choice-text {
+    background: #330000;
+    border-radius: 8px;
+    padding: 12px 20px;
+    color: #eee;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .choice-text.highlight {
+    background: #660000;
+    box-shadow: 0 0 14px #ff4444aa;
+  }
+  #footer {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #660000;
+    text-align: center;
+    margin-top: 18px;
+    user-select: none;
+  }
+</style>
 </head>
 <body>
   <div id="game-container" role="main" aria-label="Jogo de texto O Caminho Sombrio">
     <h1>O Caminho Sombrio</h1>
-    <div id="story" tabindex="0" aria-live="polite" aria-atomic="true"></div>
-    <div id="choices" aria-label="Escolhas do jogador"></div>
-    <div id="footer">Use as setas do teclado para navegar e Enter para escolher</div>
+    <div id="story" tabindex="0" aria-live="polite" aria-atomic="true">
+      Você acorda no meio de uma floresta sombria. A noite está densa e o som dos seus passos ecoa entre as árvores.<br />
+      Dois caminhos diante de você: um à esquerda, marcado por uma luz fraca, e outro à direita, mergulhado na escuridão.
+    </div>
+    <div id="choices" aria-label="Escolhas do jogador">
+      <div class="choice-text">Seguir pelo caminho iluminado à esquerda</div>
+      <div class="choice-text">Encarar o caminho escuro à direita</div>
+    </div>
+    <div id="footer">Este é um jogo de texto estático usando apenas HTML e CSS.</div>
   </div>
-
-  <script>
-    (function(){
-      const storyElement = document.getElementById('story');
-      const choicesElement = document.getElementById('choices');
-
-      const gameStates = {
-        start: {
-          text: "Você acorda no meio de uma floresta sombria. A noite está densa e o som dos seus passos ecoa entre as árvores. Dois caminhos diante de você: um à esquerda, marcado por uma luz fraca, e outro à direita, mergulhado na escuridão.",
-          choices: [
-            { text: "Seguir pelo caminho iluminado à esquerda", next: "pathLight" },
-            { text: "Encarar o caminho escuro à direita", next: "pathDark" }
-          ]
-        },
-        pathLight: {
-          text: "Você avança pelo caminho iluminado, onde pequenas flores luminescentes brilham sob suas mãos. De repente, ouve um sussurro suave... Um espírito da floresta aparece, oferecendo ajuda ou um desafio.",
-          choices: [
-            { text: "Aceitar ajuda do espírito", next: "spiritHelp" },
-            { text: "Recusar e seguir em frente", next: "refuseSpirit" }
-          ]
-        },
-        pathDark: {
-          text: "Você escolhe o caminho escuro, onde o silêncio parece pesar mais a cada passo. O medo começa a surgir, mas uma presença forte o acompanha. Logo, uma cabana iluminada por velas aparece.",
-          choices: [
-            { text: "Bater à porta da cabana", next: "knockCabin" },
-            { text: "Ignorar a cabana e seguir pelo caminho", next: "ignoreCabin" }
-          ]
-        },
-        spiritHelp: {
-          text: "O espírito sorri e toca sua testa. Você sente uma calma profunda. De repente, uma ponte mágica aparece na sua frente, atravessando um abismo. O espírito diz para você atravessar com cuidado.",
-          choices: [
-            { text: "Atravessar a ponte", next: "crossBridge" },
-            { text: "Voltar e escolher o outro caminho", next: "start" }
-          ]
-        },
-        refuseSpirit: {
-          text: "Você ignora o espírito e continua andando. O caminho começa a se fechar atrás de você com galhos e sombras. Você está preso e o ar começa a faltar.",
-          choices: [
-            { text: "Pedir ajuda aos ventos", next: "callWinds" },
-            { text: "Tentar forçar passagem com força", next: "forcePath" }
-          ]
-        },
-        knockCabin: {
-          text: "Você bate na porta e uma velha senhora abre. Ela sorri e convida você para entrar, oferecendo chá e um mapa misterioso.",
-          choices: [
-            { text: "Aceitar o chá e o mapa", next: "acceptMap" },
-            { text: "Recusar educadamente e sair da cabana", next: "leaveCabin" }
-          ]
-        },
-        ignoreCabin: {
-          text: "Você passa pela cabana e logo o caminho desaparece em meio a uma densa neblina. Você sente que está sendo observado e precisa decidir rápido.",
-          choices: [
-            { text: "Procurar um lugar para se esconder", next: "hideMist" },
-            { text: "Gritar para afastar o que está te vigiando", next: "shoutMist" }
-          ]
-        },
-        crossBridge: {
-          text: "Você atravessa a ponte com cuidado e, ao chegar do outro lado, encontra um vale iluminado pelo luar, onde a saída da floresta aparece ao longe. Você escapou do caminho sombrio!",
-          choices: [
-            { text: "Jogar novamente", next: "start" }
-          ]
-        },
-        callWinds: {
-          text: "Você chama os ventos e uma tempestade se forma, abrindo caminho entre as sombras. Você consegue escapar, apesar do susto.",
-          choices: [
-            { text: "Jogar novamente", next: "start" }
-          ]
-        },
-        forcePath: {
-          text: "Você usa sua força para abrir caminho, mas acaba ficando ferido e preso. O caminho sombrio engole sua última esperança.",
-          choices: [
-            { text: "Recomeçar", next: "start" }
-          ]
-        },
-        acceptMap: {
-          text: "Com o mapa nas mãos, você encontra uma passagem secreta na floresta que leva direto à saída. Você está salvo!",
-          choices: [
-            { text: "Jogar novamente", next: "start" }
-          ]
-        },
-        leaveCabin: {
-          text: "Você sai da cabana e logo encontra uma armadilha escondida. Preso, só resta esperar o destino.",
-          choices: [
-            { text: "Recomeçar", next: "start" }
-          ]
-        },
-        hideMist: {
-          text: "Você se esconde entre as árvores e a neblina passa. Quando a visibilidade retorna, você percebe que encontrou um novo caminho para a saída.",
-          choices: [
-            { text: "Jogar novamente", next: "start" }
-          ]
-        },
-        shoutMist: {
-          text: "Seu grito atrai uma criatura das sombras! Ela o caça e o caminho sombrio o engole para sempre.",
-          choices: [
-            { text: "Recomeçar", next: "start" }
-          ]
-        }
-      };
-
-      let currentState = 'start';
-
-      function renderState(stateKey) {
-        const state = gameStates[stateKey];
-        storyElement.textContent = '';
-        // typewriter effect for story text
-        let i = 0;
-        const text = state.text;
-        storyElement.focus();
-        function typeWriter() {
-          if (i < text.length) {
-            storyElement.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 20);
-          } else {
-            renderChoices(state.choices);
-          }
-        }
-        storyElement.textContent = '';
-        clearChoices();
-        typeWriter();
-        currentState = stateKey;
-      }
-
-      function clearChoices() {
-        choicesElement.innerHTML = '';
-      }
-
-      function renderChoices(choices) {
-        choices.forEach((choice, index) => {
-          const btn = document.createElement('button');
-          btn.classList.add('choice-btn');
-          btn.textContent = choice.text;
-          btn.setAttribute('data-next', choice.next);
-          btn.setAttribute('aria-label', 'Escolher: ' + choice.text);
-          btn.addEventListener('click', () => {
-            renderState(choice.next);
-          });
-          choicesElement.appendChild(btn);
-        });
-        // Enable keyboard navigation on choices
-        if(choices.length > 0) choicesElement.children[0].focus();
-      }
-
-      // Keyboard navigation support
-      document.addEventListener('keydown', (e) => {
-        if (choicesElement.children.length === 0) return;
-        const focused = document.activeElement;
-        if (focused.parentElement !== choicesElement) return;
-
-        if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          const next = focused.nextElementSibling || choicesElement.children[0];
-          next.focus();
-        }
-        if (e.key === 'ArrowUp') {
-          e.preventDefault();
-          const prev = focused.previousElementSibling || choicesElement.children[choicesElement.children.length - 1];
-          prev.focus();
-        }
-        if (e.key === 'Enter') {
-          focused.click();
-        }
-      });
-
-      // Start the game
-      renderState(currentState);
-    })();
-  </script>
 </body>
 </html>
-
 
