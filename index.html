@@ -4,74 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>O Caminho Sombrio - Jogo de Texto</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans&display=swap');
-  body {
-    background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-    color: #e0e0e0;
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  #game-container {
-    background: #141414cc;
-    border: 2px solid #660000;
-    border-radius: 12px;
-    width: 90vw;
-    max-width: 600px;
-    padding: 25px 35px 35px 35px;
-    box-shadow: 0 0 20px #aa0000cc;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 80vh;
-  }
-  h1 {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 2.8rem;
-    color: #cc2222;
-    margin-bottom: 15px;
-    text-align: center;
-    text-shadow: 1px 1px 6px #a00000cc;
-  }
-  #story {
-    flex-grow: 1;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    overflow-y: auto;
-    padding-right: 10px;
-    border-right: 1px solid #330000aa;
-    user-select: none;
-  }
-  #choices {
-    margin-top: 20px;
-  }
-  .choice-text {
-    background: #330000;
-    border-radius: 8px;
-    padding: 12px 20px;
-    color: #eee;
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
-  .choice-text.highlight {
-    background: #660000;
-    box-shadow: 0 0 14px #ff4444aa;
-  }
-  #footer {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: #660000;
-    text-align: center;
-    margin-top: 18px;
-    user-select: none;
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="game-container" role="main" aria-label="Jogo de texto O Caminho Sombrio">
@@ -83,10 +16,9 @@
     <div id="choices" aria-label="Escolhas do jogador">
         <a href="iluminado.html">seguir pelo caminho iluminado a esquerda</a>
         
-      <div class="choice-text">Seguir pelo caminho iluminado à esquerda</div>
-      <div class="choice-text">Encarar o caminho escuro à direita</div>
+      <a href= class="choice-text">Seguir pelo caminho iluminado à esquerda</div>
+      <a href= class="choice-text">Encarar o caminho escuro à direita</div>
     </div>
-    <div id="footer">Este é um jogo de texto estático usando apenas HTML e CSS.</div>
   </div>
 </body>
 </html>
